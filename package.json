@@ -1,0 +1,23 @@
+{
+  "name": "download_pdf_ervice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": " nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11",
+    "nunjucks": "^3.2.4",
+    "puppeteer": "^24.31.0",
+    "redis": "^5.10.0"
+  }
+}
