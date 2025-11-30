@@ -712,28 +712,31 @@
   {% endif %}
 
   {# ================= SKILLS / INTERESTS / LANGUAGES ================= #}
-
-  {% if "skills" not in hidden_sections
-        and resume.skills
-        and resume.skills|length > 0 %}
+   {% if (hidden_sections is not defined or "skills" not in hidden_sections)
+      and resume.skills
+      and resume.skills|length > 0 %}
     <section class="section section-tight">
       <h2 class="section-title">Skills</h2>
       <ul class="inline-list">
-        {% for s in resume.skills if s %}
+       {% for s in resume.skills %}
+        {% if s %}
           <li>{{ s }}</li>
+        {% endif %}
         {% endfor %}
       </ul>
     </section>
   {% endif %}
 
-  {% if "interests" not in hidden_sections
+  {% if (hidden_sections is not defined or "interests" not in hidden_sections)
         and resume.interests
         and resume.interests|length > 0 %}
     <section class="section section-tight">
       <h2 class="section-title">Interests</h2>
       <ul class="inline-list">
-        {% for i in resume.interests if i %}
-          <li>{{ i }}</li>
+       {% for s in resume.interests %}
+        {% if s %}
+          <li>{{ s }}</li>
+        {% endif %}
         {% endfor %}
       </ul>
     </section>

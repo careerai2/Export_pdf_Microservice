@@ -31,13 +31,14 @@ app.post("/download-resume/:resumeId/:userId", async (req, res, next) => {
 
     const pdfBuffer = await generateResumePdf(JSON.parse(resume));
 
+    res.status(200);
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", 'inline; filename="resume.pdf"');
 
     console.info("\nPDF generated, size:", pdfBuffer.length, "bytes",`\nfor resumeId=${req.params.resumeId}, userId=${req.params.userId}`);
     res.send(pdfBuffer);
   } catch (err) {
-    console.error("\n\nError generating PDF:", err);
+    console.error("\n\nError generating PDF:", err.stack || err);
     return res.status(500).json({ error: err.message });
   }
 });
