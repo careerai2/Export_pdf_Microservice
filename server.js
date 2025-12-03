@@ -16,6 +16,9 @@ app.use(cors());
 
 app.use(bodyParser.json({ limit: "50mb" }));
 
+app.get("/",(req,res)=>{
+    res.send("PDF Service is running 🚀");
+})
 
 app.post("/download-resume/:resumeId/:userId", async (req, res, next) => {
   try {
